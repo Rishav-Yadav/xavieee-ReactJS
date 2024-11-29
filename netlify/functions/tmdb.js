@@ -7,6 +7,9 @@ exports.handler = async () => {
     const data = await response.json();
     return {
       statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
       body: JSON.stringify(data),
     };
   } catch (error) {
