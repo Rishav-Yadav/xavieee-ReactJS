@@ -1,7 +1,7 @@
 const trendingReducer = (state, action) => {
   switch (action.type) {
     case "MOVIES":
-      return;
+      return { ...state, movies: action.payload };
     case "SERIES":
       return;
     default:

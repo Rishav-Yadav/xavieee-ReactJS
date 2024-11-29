@@ -8,7 +8,7 @@ export const TrendingProvider = ({ children }) => {
   };
   const [state, dispatch] = useReducer(trendingReducer, initialState);
   return (
-    <TrendingContext.Provider value={(state, dispatch)}>
+    <TrendingContext.Provider value={{ ...state, dispatch }}>
       {children}
     </TrendingContext.Provider>
   );

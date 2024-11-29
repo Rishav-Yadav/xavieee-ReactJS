@@ -2,22 +2,24 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-import { movies } from "../context/TrendingAction";
+import { getMovies } from "../context/TrendingAction";
 import { Link } from "react-router-dom";
 import TrendingContext from "../context/TrendingContext";
 import { useContext, useEffect } from "react";
 function TrendingMovies() {
-  const { state, dispatch } = useContext(TrendingContext);
+  const { movies, dispatch } = useContext(TrendingContext);
   useEffect(() => {
+    console.log(movies);
     const getTrendingMovies = async () => {
-      const temp = await movies();
+      const temp = await getMovies();
       dispatch({ type: "MOVIES", payload: temp });
     };
-    console.log(state.movies)
+    console.log(movies);
     getTrendingMovies();
-    console.log(state.movies)
+    console.log(movies);
   }, []);
-  const trendingMovies = state.movies.slice(0, 10);
+
+  const trendingMovies = movies.slice(0, 10);
   return (
     <Swiper
       spaceBetween={50}
