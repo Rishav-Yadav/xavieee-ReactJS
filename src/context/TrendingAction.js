@@ -4,5 +4,6 @@ export const movies = async () => {
   );
   console.log(response);
   const data = await response.json();
-  console.log(data);
+  console.log(data, data.results);
+  return data.results;
 };

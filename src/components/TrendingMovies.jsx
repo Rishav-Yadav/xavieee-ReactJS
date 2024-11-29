@@ -3,9 +3,21 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { movies } from "../context/TrendingAction";
-
+import { Link } from "react-router-dom";
+import TrendingContext from "../context/TrendingContext";
+import { useContext, useEffect } from "react";
 function TrendingMovies() {
-  movies();
+  const { state, dispatch } = useContext(TrendingContext);
+  useEffect(() => {
+    const getTrendingMovies = async () => {
+      const temp = await movies();
+      dispatch({ type: "MOVIES", payload: temp });
+    };
+    console.log(state.movies)
+    getTrendingMovies();
+    console.log(state.movies)
+  }, []);
+  const trendingMovies = state.movies.slice(0, 10);
   return (
     <Swiper
       spaceBetween={50}
@@ -19,21 +31,16 @@ function TrendingMovies() {
       className="my-swiper"
       effect="fade"
     >
-      <SwiperSlide>
-        <div className=" slide-content focus-slide">Slide 1</div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className=" slide-content faded-slide">Slide 2</div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className=" slide-content faded-slide">Slide 3</div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className=" slide-content faded-slide">Slide 4</div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="slide-content faded-slide">Slide 5</div>
-      </SwiperSlide>
+      {trendingMovies.map((item, index) => (
+        <SwiperSlide>
+          <div className={`slide-content index===0?focus-slide:faded-slide`}>
+            <Link to="/">
+              <img src={item.backdrop_path} />
+              <h2 className="text-white">{item.original_title}</h2>
+            </Link>
+          </div>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 }
