@@ -1,9 +1,14 @@
 export const getMovies = async () => {
   const response = await fetch(
-    "https://67497afab97b14289d6d50b6--endearing-biscochitos-506ba9.netlify.app/.netlify/functions/tmdb"
+    "https://endearing-biscochitos-506ba9.netlify.app/.netlify/functions/TrendingMovies"
   );
-  console.log(response);
   const data = await response.json();
-  console.log(data, data.results);
+  return data.results;
+};
+export const getSeries = async () => {
+  const response = await fetch(
+    `https://endearing-biscochitos-506ba9.netlify.app/.netlify/functions/TrendingSeries`
+  );
+  const data = await response.json();
   return data.results;
 };
