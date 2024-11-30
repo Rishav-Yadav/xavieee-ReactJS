@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 function Navbar() {
   const [isExpandable, setIsExpandable] = useState(false);
@@ -26,24 +25,6 @@ function Navbar() {
           Movies
         </Link>
       </div>
-      {/* <div className="ml-5 flex-none ">
-        <div className="form-control">
-          <label
-            className={`flex items-center input  input-sm w-auto md:w-auto shadow-lg rounded-full focus:ring-violet-300 ${
-              isExpandable ? "px-2 py-1" : "p-2 w-10"
-            }transition-all duration-300`}
-          >
-            <FaSearch className="cursor-pointer" onClick={handleClick} />
-            {isExpandable && (
-              <input
-                type="text"
-                className="w-20  focus:outline-none transition-all duration-300"
-                placeholder="  Search"
-              />
-            )}
-          </label>
-        </div>
-      </div> */}
     </div>
   );
 }

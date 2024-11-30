@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination, Scrollbar } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/autoplay";
+import "swiper/css/pagination";
 import { getMovies } from "../context/TrendingAction";
 import { Link } from "react-router-dom";
 import TrendingContext from "../context/TrendingContext";
@@ -9,11 +9,6 @@ import { useState, useContext, useEffect } from "react";
 function TrendingMovies() {
   const { movies, dispatch } = useContext(TrendingContext);
   const [activeIndex, setActiveIndex] = useState(0);
-  // const handleSlideChange = (swiper) => {
-  //   console.log(activeIndex);
-  //   setActiveIndex(swiper.activeIndex);
-  //   console.log(activeIndex);
-  // };
   useEffect(() => {
     const getTrendingMovies = async () => {
       const temp = await getMovies();
@@ -27,32 +22,32 @@ function TrendingMovies() {
 
   return (
     <Swiper
-      spaceBetween={30}
+      modules={[Autoplay, Pagination]}
+      pagination={{ clickable: true }}
+      spaceBetween={10}
       slidesPerView={3}
-      modules={[Autoplay]}
-      autoplay={{ delay: 3000, disableOnInteraction: false }}
       loop={true}
       centeredSlides={true}
-      className="my-swiper"
+      autoplay={{ delay: 3000, disbaleOnInteraction: false }}
+      className="carousel carousel-center rounded-box"
     >
       {trendingMovies.map((item, index) => (
-        <div className="swiper">
-          <div className="swiper-wrapper">
-            {
-              <SwiperSlide key={index}>
-                <div className={`slide-content`}>
-                  <Link to="/">
-                    <img
-                      src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
-                      alt={item.original_title}
-                    />
-                    <h2 className="text-white">{item.original_title}</h2>
-                  </Link>
-                </div>
-              </SwiperSlide>
-            }
+        <SwiperSlide key={index}>
+          <div className="slide-content carousel-item">
+            <div className="wrapper">
+              <Link to="./" className="">
+                <img
+                  className="shadow-lg  w-full  xl:max-h-[500px] lg-max-h-[500px] lg:max-w-[500px] xl:max-w-[500px]"
+                  src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
+                  alt="backdrop"
+                />
+              </Link>
+              <h2 className="text-lg text-white mt-6 text-center font-semi-bold truncate w-[8] ">
+                {item.title}
+              </h2>
+            </div>
           </div>
-        </div>
+        </SwiperSlide>
       ))}
     </Swiper>
   );

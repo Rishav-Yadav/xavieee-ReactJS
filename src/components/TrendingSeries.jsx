@@ -1,8 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-
+import { Autoplay, Pagination } from "swiper/modules";
 import TrendingContext from "../context/TrendingContext";
 import { getSeries } from "../context/TrendingAction";
 import "swiper/css";
@@ -11,32 +10,35 @@ function TrendingSeries() {
   useEffect(() => {
     const getSeriesLocal = async () => {
       const data = await getSeries();
-      dispatchEvent({ type: "SERIES", payload: data });
+      dispatch({ type: "SERIES", payload: data });
     };
     getSeriesLocal();
-  }, [series]);
+  }, [dispatch]);
 
   const trendingSeries = series.slice(0, 10);
   return (
     <Swiper
-      modules={[Autoplay]}
+      modules={[Autoplay, Pagination]}
       slidesPerView={3}
       spaceBetween={30}
       loop={true}
+      pagination={{ clickable: true }}
       centeredSlides={true}
       autoplay={{ delay: 3000, disbaleOnInteraction: false }}
     >
       {trendingSeries.map((item, index) => (
         <SwiperSlide key={index}>
-          <div className="slide-content">
+          <div className="slide-content ">
             <Link to="./" className="">
               <img
-                className="shadow-lg"
-                src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
+                className="shadow-lg w-full lg:max-h-[500px] xl:max-h-[500px] lg:max-w-[500px] xl:max-w-[500px]"
+                src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
                 alt="backdrop"
               />
             </Link>
-            <h2 className="text-accent mt-1">{item.original_title}</h2>
+            <h2 className="text-lg text-white mt-6 text-center font-semi-bold">
+              {item.name}
+            </h2>
           </div>
         </SwiperSlide>
       ))}

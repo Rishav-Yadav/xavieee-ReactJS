@@ -4,6 +4,8 @@ const trendingReducer = (state, action) => {
       return { ...state, movies: action.payload };
     case "SERIES":
       return { ...state, series: action.payload };
+    case "SEARCH":
+      return { ...state, searchData: action.payload };
     default:
       return state;
   }

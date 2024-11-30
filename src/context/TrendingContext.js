@@ -5,6 +5,7 @@ export const TrendingProvider = ({ children }) => {
   const initialState = {
     movies: [],
     series: [],
+    searchData: [],
   };
   const [state, dispatch] = useReducer(trendingReducer, initialState);
   return (
