@@ -12,3 +12,93 @@
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: var(--swiper-pagination-bottom, 30px) !important;
 }
+/.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: var(--swiper-pagination-bottom, 30px) !important;
+}
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: var(--swiper-pagination-bottom, 30px) !important;
+}
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: var(--swiper-pagination-bottom, 30px) !important;
+}
+
+/* Ensure images are properly sized */
+.horizontal-item img {
+  max-width: 100%; /* Ensure image fits within the card */
+  max-height: 400px; /* Adjust height for bigger cards */
+  border-radius: 10px;
+}
+
+/* Hide the FullPage.js credit */
+.fp-watermark {
+  display: none !important;
+}
+
+/* FullPage.js base styles */
+/* Ensure the fullpage container takes full height */
+#fullpage {
+  height: 100vh;
+  width: 100%;
+}
+
+/* Style for the horizontal scroll container */
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: hidden; /* Hide scrollbars */
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  width: 100%; /* Ensure it does not cover the entire page */
+  height: 100%; /* Ensure it does not cover the entire page */
+  align-items: center; /* Center items vertically */
+}
+
+/* Style for each horizontal item */
+.horizontal-item {
+  flex: 0 0 auto;
+  margin: 10px 5px; /* Adjust margin to reduce vertical space */
+  text-align: center;
+  width: 300px; /* Adjust width for bigger cards */
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: var(--swiper-pagination-bottom, 30px) !important;
+}
+
+/* Ensure images are properly sized */
+.horizontal-item img {
+  max-width: 100%; /* Ensure image fits within the card */
+  max-height: 400px; /* Adjust height for bigger cards */
+  border-radius: 10px;
+}
+
+/* Hide the FullPage.js credit */
+.fp-watermark {
+  display: none !important;
+}
+
+/* FullPage.js base styles */
+/* Ensure the fullpage container takes full height */
+#fullpage {
+  height: 100vh;
+  width: 100%;
+}
+
+/* Style for the horizontal scroll container */
+.horizontal-scroll-container {
+  display: flex;
+  overflow-x: hidden; /* Hide scrollbars */
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  width: 100%; /* Ensure it does not cover the entire page */
+  height: 100%; /* Ensure it does not cover the entire page */
+  align-items: center; /* Center items vertically */
+  justify-content: flex-start; /* Align items to the start horizontally */
+}
+
+/* Style for each horizontal item */
+.horizontal-item {
+  flex: 0 0 auto;
+  margin: 5px; /* Reduce margin to minimize vertical space */
+  text-align: center;
+  width: 300px; /* Adjust width for bigger cards */
+}

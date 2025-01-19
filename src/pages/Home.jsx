@@ -18,7 +18,7 @@ function Home() {
           {<TrendingSeries />}
         </div>
       </div>
-      <div className="search-section flex justify-center items-center my-12 lg:my-24 xl:my-24 py-4">
+      <div className="search-section flex flex-col justify-center items-center my-12 lg:my-24 xl:my-24 py-4">
         <SearchBox />
       </div>
     </>

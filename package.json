@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-transform-private-property-in-object": "^7.25.9",
+    "@fullpage/react-fullpage": "^0.1.46",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "daisyui": "^4.12.14",
+    "fullpage.js": "^4.0.31",
     "node-fetch": "^2.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
